@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);
+    --DarkGray: hsl(0, 0%, 55%);
+    --VeryDarkGray: hsl(0, 0%, 41%);
+}
+
+body {
+    margin: 0;
+}
+
+/* ------ HEADER SECTION ------ */
+
+header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.heroimage img {
+    position: relative;
+    opacity: var(--Black);
+}
+
+.header-container {
+    position: absolute;
+    top: 5%;
+}
+
+li {
+    list-style-type: none;
+    color: white;
+    z-index: 500;
+}
+
+.button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    border: none;
+    z-index: 500;
+    font-weight: 900;
+}
+
+.navbar {
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    box-sizing: border-box;
+}
+
+.navbar-overlay {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+body.open .navbar-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navbar-burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 900;
+}
+
+.navbar-title {
+    margin: 0;
+}
+.btnavtitles{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.navbar-menu {
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    translate: -100% 0;
+    width: 270px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #000000;
+    visibility: hidden;
+    transition: translate 0.3s;
+}
+
+body.open .navbar-menu {
+    translate: 0 0;
+    visibility: visible;
+}
+
+.navbar-menu>.button {
+    color:white;
+    background: transparent;
+    padding: 0 8px;
+}
+
+
+.header-text {
+    border: 1px solid white;
+    width: 80%;
+    color: white;
+    z-index: 500;
+}
+
+
+.header-text h1 {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 5px;
+    padding: 10px 5px;
+    width: 100%;
+    z-index: 500;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+/* --- main section --- */
+
+main {
+    margin: 150px 150px;
+}
+
+.main-image {
+    position: relative;
+}
+
+.main-text {
+    position: absolute;
+    border: 2px solid red;
+    padding: 100px;
+    top: 950px;
+    left: 50%;
+    background-color: white;
+    border: none;
+}
+
+h2 {
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 20px 0px;
+}
+
+p {
+    color: var(--DarkGray);
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px 0px;
+}
+
+/* --- header section  Media Queries*/
+
+@media only screen and (min-width: 767px) {
+    .navbar-burger {
+        display: none;
+    }
+
+    .navbar-overlay {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 0 0 0 16px;
+    }
+
+    .navbar-menu {
+        position: static;
+        translate: 0 0;
+        width: auto;
+        background: transparent;
+        flex-direction: row;
+        visibility: visible;
+    }
+}
+
+/* ---gallery section --- */
+
+/* article {
+    margin: 150px 150px;
+}
+
+.gallery-nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 30px 0px;
+}
+
+article h2 {
+    flex: 10;
+}
+
+button {
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px 30px;
+    width: fit-content;
+    background-color: transparent;
+    text-align: center;
+
+}
+
+button a {
+    font-family: 'Alata', sans-serif;
+    font-weight: 300;
+    color: var(--Black);
+}
+
+.gallery {
+    width: 100%;
+    padding: 20px 0px;
+
+}
+
+.gallery-1 {
+    display: flex;
+    position: relative;
+}
+
+.gallery-1 img {
+    flex-direction: row;
+    width: 90%;
+}
+
+.gallery-2 {
+    display: flex;
+    position: relative;
+}
+
+.gallery-2 img {
+    flex-direction: row;
+    width: 90%;
+
+}
+
+.gallery-1-1 {
+    width: 100%;
+}
+
+.gallery-2-2 {
+    width: 100%;
+}
+
+h3 {
+    position: absolute;
+    top: 80%;
+    color: var(--DarkGray);
+    font-size: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    padding-left: 50px;
+} */
+
+
+/* --- footer section --- */
+/* footer {
+    background-color: black;
+    padding: 30px 100px;
+}
+
+.col-logo {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+}
+
+.social-media {
+    flex: 1;
+    text-align: right;
+}
+
+.social-media img {
+    margin: 0px 5px;
+}
+
+.col-info {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 0px;
+}
+
+.copyright {
+    color: var(--VeryDarkGray);
+    flex: 1;
+    text-align: right;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+} */
+
+
+
+
+
+
+
+
+/* font-family: 'Alata', sans-serif;
+font-family: 'Josefin Sans', sans-serif; */
