@@ -24,17 +24,23 @@ header {
     width: 100%;
     height: 100%;
     position: relative;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #000000;
 }
 
 
 .heroimage img {
     position: relative;
     opacity: var(--Black);
+    opacity: 0.6;
 }
 
 .header-container {
     position: absolute;
     top: 5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 li {
@@ -55,6 +61,7 @@ li {
 }
 
 .navbar {
+    position: fixed;
     z-index: 400;
     display: flex;
     align-items: center;
@@ -63,6 +70,7 @@ li {
     height: 100%;
     color: white;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .navbar-overlay {
@@ -76,6 +84,7 @@ li {
     visibility: hidden;
     opacity: 0;
     transition: 0.3s;
+
 }
 
 body.open .navbar-overlay {
@@ -86,32 +95,31 @@ body.open .navbar-overlay {
 .navbar-burger {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     display: grid;
     place-items: center;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     padding: 0;
     background: transparent;
     border: none;
     color: white;
     font-weight: 900;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .navbar-title {
     margin: 0;
-}
-.btnavtitles{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    overflow-x: hidden;
+    cursor: pointer;
 }
 
 .navbar-menu {
     position: fixed;
     z-index: 500;
     top: 0;
-    left: 0;
+    right: 0;
     translate: -100% 0;
     width: 270px;
     height: 100%;
@@ -122,7 +130,7 @@ body.open .navbar-overlay {
     align-items: flex-start;
     background: #000000;
     visibility: hidden;
-    transition: translate 0.3s;
+    overflow-x: hidden;
 }
 
 body.open .navbar-menu {
@@ -131,79 +139,42 @@ body.open .navbar-menu {
 }
 
 .navbar-menu>.button {
-    color:white;
+    color: white;
     background: transparent;
     padding: 0 8px;
 }
 
-
-.header-text {
-    border: 1px solid white;
-    width: 80%;
-    color: white;
-    z-index: 500;
-}
-
-
 .header-text h1 {
+    border: 1px solid white;
     color: white;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
     letter-spacing: 5px;
-    padding: 10px 5px;
-    width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    width: 80%;
     z-index: 500;
+    margin-left: 0.5rem;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 13px;
+/* --- header section  media queries --- */
+
+@media only screen and (min-width: 600px) {
+    .header-text {
+        margin-top: 10%;
+    }
+
+    .header-text h1 {
+        font-size: 30px;
+        width: 70%;
+        z-index: 500;
+        margin-left: 0.5rem;
+    }
 }
 
-/* --- main section --- */
-
-main {
-    margin: 150px 150px;
-}
-
-.main-image {
-    position: relative;
-}
-
-.main-text {
-    position: absolute;
-    border: 2px solid red;
-    padding: 100px;
-    top: 950px;
-    left: 50%;
-    background-color: white;
-    border: none;
-}
-
-h2 {
-    color: black;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-    margin: 20px 0px;
-}
-
-p {
-    color: var(--DarkGray);
-    font-family: 'Alata', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    padding: 20px 0px;
-}
-
-/* --- header section  Media Queries*/
-
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
     .navbar-burger {
         display: none;
     }
@@ -225,102 +196,217 @@ p {
         flex-direction: row;
         visibility: visible;
     }
+
+    .header-text h1 {
+        font-size: 35px;
+        width: 58%;
+        z-index: 500;
+    }
 }
 
-/* ---gallery section --- */
+@media only screen and (min-width: 1200px) {
 
-/* article {
-    margin: 150px 150px;
+    .header-text h1 {
+        font-size: 60px;
+        width: 56%;
+        z-index: 500;
+        padding-left: 50px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+}
+
+/* ----- MAIN SECTION ----- */
+
+main {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* background-color: red; */
+}
+
+.main-image {
+    position: relative;
+    margin-bottom: 2rem;
+    translate: 0.3s;
+}
+
+.main-text {
+    border: 2px solid red;
+    border: none;
+    text-align: center;
+    width: 85%;
+    margin: auto;
+    translate: 0.3s;
+
+}
+
+h2 {
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 1.5rem 0;
+}
+
+p {
+    color: var(--DarkGray);
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7rem;
+}
+
+/* --- main section  media queries --- */
+
+@media only screen and (min-width: 900px) {
+    main {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        padding-top: 10rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-image {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .main-text {
+        position: relative;
+        background-color: white;
+        top: -20rem;
+        left: 25%;
+        text-align: left;
+        width: 50%;
+        margin: auto;
+        padding: 4rem;
+
+    }
+
+    p {
+        line-height: 2rem;
+    }
+}
+
+
+
+/* ----- GALLERY SECTION  ----- */
+
+.myarticle {
+    height: 100%;
+    width: 100%;
+    padding: 3rem 0;
 }
 
 .gallery-nav-bar {
     display: flex;
     align-items: center;
-    padding: 30px 0px;
+}
+
+.button1 {
+    display: none;
+}
+
+.button2 {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 3rem;
 }
 
 article h2 {
-    flex: 10;
+    width: 100%;
+    text-align: center;
 }
 
 button {
-    flex: 1;
     border: 1px solid black;
     padding: 10px 30px;
-    width: fit-content;
     background-color: transparent;
     text-align: center;
-
+    width: 100%;
 }
 
 button a {
     font-family: 'Alata', sans-serif;
     font-weight: 300;
     color: var(--Black);
+    text-decoration: none;
+}
+
+.imagedesktop {
+    display: none;
 }
 
 .gallery {
     width: 100%;
-    padding: 20px 0px;
-
-}
-
-.gallery-1 {
-    display: flex;
-    position: relative;
-}
-
-.gallery-1 img {
-    flex-direction: row;
-    width: 90%;
-}
-
-.gallery-2 {
-    display: flex;
-    position: relative;
-}
-
-.gallery-2 img {
-    flex-direction: row;
-    width: 90%;
-
+    height: 100%;
 }
 
 .gallery-1-1 {
+    position: relative;  
+    margin-top: 1.5rem;
+    overflow-y: hidden;
+}
+
+
+.gallery-1 img {
     width: 100%;
+    filter: brightness(60%);
+    overflow-y: hidden;
 }
 
 .gallery-2-2 {
+    position: relative;
+    margin-bottom: 1.5rem;
+    overflow-y: hidden;
+}
+
+.gallery-2 img {
     width: 100%;
+    filter: brightness(60%);
+    overflow-y: hidden;
 }
 
-h3 {
+.articleh3 {
     position: absolute;
-    top: 80%;
-    color: var(--DarkGray);
-    font-size: 30px;
+    top: 4rem;
+    font-size: 16px;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
-    padding-left: 50px;
-} */
+    font-weight: 700;
+    z-index: 500;
+    margin-left: 20px;
+    overflow-y: hidden;
+    color: rgba(255, 255, 255, 0.781);
+}
 
 
-/* --- footer section --- */
-/* footer {
+
+/* -----FOOTER SECTION----- */
+
+footer {
     background-color: black;
-    padding: 30px 100px;
+    text-align: center;
+    padding: 3rem 0.5rem;
 }
-
-.col-logo {
+.about{
+    text-align: center;
+    margin: 2rem 0;
     display: flex;
-    flex-direction: row;
-    flex: 1;
-    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: -1rem;
+    
 }
-
-.social-media {
-    flex: 1;
-    text-align: right;
+.about a{
+    text-decoration: none;
+    color: white;
+    line-height: 2rem;
+    font-size: 16px;
 }
 
 .social-media img {
@@ -329,23 +415,17 @@ h3 {
 
 .col-info {
     display: flex;
-    flex-direction: row;
-    padding: 30px 0px;
+    flex-direction: column;
 }
 
 .copyright {
     color: var(--VeryDarkGray);
-    flex: 1;
-    text-align: right;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 300;
-} */
-
-
-
-
-
-
+    font-weight: 700;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 1rem;
+}
 
 
 /* font-family: 'Alata', sans-serif;
