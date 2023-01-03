@@ -29,8 +29,11 @@ header {
     background-color: #000000;
 }
 
+.heroimage {
+    display: none;
+}
 
-.heroimage img {
+.heroimagemobile img {
     position: relative;
     opacity: var(--Black);
     opacity: 0.6;
@@ -98,8 +101,8 @@ body.open .navbar-overlay {
     right: 0;
     display: grid;
     place-items: center;
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     padding: 0;
     background: transparent;
     border: none;
@@ -145,42 +148,51 @@ body.open .navbar-menu {
 }
 
 .header-text h1 {
-    border: 1px solid white;
+    border: 2px solid white;
     color: white;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 25px;
     letter-spacing: 5px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 20px;
-    padding-bottom: 5px;
-    width: 80%;
+    padding-bottom: 10px;
+    width: 85%;
     z-index: 500;
+    margin-top: 50%;
     margin-left: 0.5rem;
+    line-height: 2.5rem;
 }
 
 /* --- header section  media queries --- */
 
 @media only screen and (min-width: 600px) {
-    .header-text {
-        margin-top: 10%;
-    }
-
     .header-text h1 {
         font-size: 30px;
         width: 70%;
         z-index: 500;
         margin-left: 0.5rem;
+        margin-top: 70%;
+        line-height: 3rem;
     }
 }
 
 @media only screen and (min-width: 768px) {
+
+    .heroimagemobile,
+    .navbar-overlay,
     .navbar-burger {
         display: none;
     }
 
-    .navbar-overlay {
-        display: none;
+    .heroimage {
+        display: flex;
+    }
+
+    .heroimage img {
+        position: relative;
+        opacity: var(--Black);
+        opacity: 0.6;
     }
 
     .navbar {
@@ -201,6 +213,8 @@ body.open .navbar-menu {
         font-size: 35px;
         width: 58%;
         z-index: 500;
+        margin-top: 10%;
+        line-height: 3rem;
     }
 }
 
@@ -213,19 +227,24 @@ body.open .navbar-menu {
         padding-left: 50px;
         padding-top: 30px;
         padding-bottom: 20px;
+        margin-top: 15%;
+        line-height: 4rem;
     }
 }
 
 /* ----- MAIN SECTION ----- */
 
 main {
-    padding-top: 4rem;
+    margin: 0;
+}
+
+.mymain {
+    padding-top: 7rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin: 0;
     width: 100%;
-    height: 100%;
     overflow-x: hidden;
-    /* background-color: red; */
 }
 
 .main-image {
@@ -235,45 +254,53 @@ main {
 }
 
 .main-text {
-    border: 2px solid red;
     border: none;
     text-align: center;
     width: 85%;
     margin: auto;
     translate: 0.3s;
-
 }
 
-h2 {
+.main-text h2 {
     color: black;
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 40px;
+    font-weight: 700;
+    font-size: 30px;
     margin: 1.5rem 0;
+    
 }
 
-p {
+.main-text p {
     color: var(--DarkGray);
     font-family: 'Alata', sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 1.7rem;
+    width: 90%;
+    margin: auto;
 }
 
 /* --- main section  media queries --- */
 
 @media only screen and (min-width: 900px) {
     main {
+        margin: 0;
+    }
+
+    .mymain {
         padding-left: 6rem;
         padding-right: 6rem;
         padding-top: 10rem;
         width: 100%;
-        height: 100%;
+        margin-bottom: 0rem;
+        padding-bottom: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     .main-image {
         position: relative;
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
     }
 
     .main-text {
@@ -282,18 +309,27 @@ p {
         top: -20rem;
         left: 25%;
         text-align: left;
-        width: 50%;
+        width: 60%;
         margin: auto;
-        padding: 4rem;
-
+        padding: 3.6rem;
     }
 
-    p {
-        line-height: 2rem;
+    .main-text p {
+        line-height: 1.5rem;
+    }
+
+    .main-text h2 {
+        font-weight: 500;
+        font-size: 45px;
+        margin: 1.5rem 0;
+    }
+    .main-text p {
+        font-size: 16px;
+        line-height: 1.8rem;
+        width: 100%;
+        margin: auto;
     }
 }
-
-
 
 /* ----- GALLERY SECTION  ----- */
 
@@ -318,9 +354,14 @@ p {
     margin-bottom: 3rem;
 }
 
-article h2 {
+.gallery-nav-barh1,
+.myarticle h2 {
     width: 100%;
     text-align: center;
+    font-size: 30px;
+    color: #000000;
+    font-weight: 500;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 button {
@@ -338,6 +379,7 @@ button a {
     text-decoration: none;
 }
 
+.gallery-nav-barh2,
 .imagedesktop {
     display: none;
 }
@@ -348,7 +390,7 @@ button a {
 }
 
 .gallery-1-1 {
-    position: relative;  
+    position: relative;
     margin-top: 1.5rem;
     overflow-y: hidden;
 }
@@ -374,14 +416,72 @@ button a {
 
 .articleh3 {
     position: absolute;
-    top: 4rem;
-    font-size: 16px;
+    top: 3rem;
+    font-size: 12px;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     z-index: 500;
     margin-left: 20px;
     overflow-y: hidden;
     color: rgba(255, 255, 255, 0.781);
+}
+
+/* --- main section  media queries --- */
+
+@media only screen and (min-width: 900px) {
+
+    .gallery-nav-barh1,
+    .imagemobile {
+        display: none;
+    }
+
+    .myarticle h2 {
+        font-size: 50px;
+    }
+
+    .imagedesktop {
+        display: flex;
+    }
+
+    .gallery-1 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        place-content: center;
+        margin: auto;
+        width: 100%;
+        grid-gap: 2rem;
+        padding-top: 4rem;
+    }
+
+    .gallery-2 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        place-content: center;
+        margin: auto;
+        grid-gap: 2rem;
+        padding-top: 4rem;
+    }
+
+    .articleh3 {
+        position: absolute;
+        top: 20rem;
+    }
+
+    .button2 {
+        display: none;
+    }
+
+    .gallery-nav-barh2,
+    .button1 {
+        display: flex;
+    }
+
+    .gallery-nav-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 1rem;
+    }
 }
 
 
@@ -393,16 +493,18 @@ footer {
     text-align: center;
     padding: 3rem 0.5rem;
 }
-.about{
+
+.about {
     text-align: center;
     margin: 2rem 0;
     display: flex;
     justify-content: center;
     width: 100%;
     margin-left: -1rem;
-    
+
 }
-.about a{
+
+.about a {
     text-decoration: none;
     color: white;
     line-height: 2rem;
