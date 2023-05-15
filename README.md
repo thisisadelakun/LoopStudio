@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [GitHub](https://github.com/thisisadelakun/LoopStudio)
 - Live Site URL: [LoopStudio](https://adelakunloopstudio.netlify.app/)
 
 ## My process
